@@ -1,0 +1,20 @@
+<table>
+<thead style="background-color:green">
+<th>name</th>
+<th>capital</th>
+<th>flag</th>
+</thead>
+<tbody>
+<tr *ngFor="let x of countrydata">
+<td>{{x.name}}</td>
+<td>{{x.capital}}</td>
+<td><img [src]="x.flag" width="100px" height="100px"></td>
+
+
+
+</tr>
+
+
+</tbody>
+
+</table>
