@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <!--<a class="navbar-brand" href="index.html">Streetwood Admin</a>-->
+  <img src="assets/img/logo.jpg" alt="log" />
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav navbar-sidenav" id="first">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" style="margin-top: 30px;">
+        <a class="nav-link" routerLink="/orders">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="nav-link-text"> Orders</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <hr>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" routerLink="/product">
+          <i class="fa fa-fw fa-ring"></i>
+          <span class="nav-link-text"> Products</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" routerLink="/product-category">
+          <i class="fa fa-fw fa-table"></i>
+          <span class="nav-link-text"> Product Categories</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" routerLink="/charm">
+          <i class="fa fa-fw fa-gem"></i>
+          <span class="nav-link-text"> Charms</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" routerLink="/charm-category">
+          <i class="fa fa-fw fa-table"></i>
+          <span class="nav-link-text"> Charm Categories</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" routerLink="/users">
+          <i class="fa fa-fw fa-user"></i>
+          <span class="nav-link-text"> Users</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <hr>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" routerLink="/shipment">
+          <i class="fa fa-fw fa-truck"></i>
+          <span class="nav-link-text"> Shipment</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" routerLink="/category-discount">
+          <i class="fa fa-fw fa-percent"></i>
+          <span class="nav-link-text"> Category discount</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" routerLink="/code-discount">
+          <i class="fa fa-fw fa-percent"></i>
+          <span class="nav-link-text"> Code discount</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" [hidden]="!isLogin">
+        <a class="nav-link" (click)="cleanCache()">
+          <i class="fa fa-fw fa-bomb"></i> Clean Cache !!</a>
+      </li>
+      <li class="nav-item" [hidden]="isLogin">
+        <a class="nav-link" routerLink="/login">
+          <i class="fa fa-fw fa-wine-bottle"></i> Login</a>
+      </li>
+      <li class="nav-item" [hidden]="!isLogin">
+        <a class="nav-link" (click)="logout()">
+          <i class="fa fa-fw fa-wine-bottle"></i> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
