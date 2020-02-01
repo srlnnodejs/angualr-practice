@@ -1,0 +1,65 @@
+<main class="container">
+  <!-- Page Number Display -->
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Page {{currentPage + 1}} of {{totalPage}}</li>
+    </ol>
+  </nav>
+  <!-- Pagination -->
+  <!-- Paginator will appear if page array has more than one element -->
+  <nav id="paginator" aria-label="Page navigation example" *ngIf="pageArr.length > 1">
+    <ul class="pagination justify-content-center">
+      <!-- First page button -->
+      <li (click)="chagePage($event)" [class]="currentPage == 0 ? 'page-item disabled' : 'page-item'">
+        <a class="page-link" href="#" aria-label="First">
+          <span aria-hidden="true">&laquo;&laquo;</span>
+        </a>
+      </li>
+      <!-- Next button -->
+      <li (click)="chagePage($event)" [class]="currentPage == 0 ? 'page-item disabled' : 'page-item'">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <!-- Page number buttton -->
+      <li (click)="chagePage($event)" [class]="page == currentPage ? 'page-item active' : 'page-item'"
+        *ngFor="let page of pageBufferArr"><a class="page-link" href="#">{{page + 1}}</a>
+      </li>
+      <!-- Next button -->
+      <li (click)="chagePage($event)" [class]="currentPage == totalPage - 1 ? 'page-item disabled' : 'page-item'">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      <!-- Last page button -->
+      <li (click)="chagePage($event)" [class]="currentPage == totalPage - 1 ? 'page-item disabled' : 'page-item'">
+        <a class="page-link" href="#" aria-label="Last">
+          <span aria-hidden="true">&raquo;&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" type="text" class="form-control" placeholder="Search Here" (keyup)="onSearch($event)">
+    <label for="number" class="col-form-label">Record Amount</label>
+    <select id="number" class="form-control" (change)="changeNumber($event)">
+      <option *ngFor="let i of recordPerPageArr" [selected]="i == recordPerPage" [value]="i">{{i}}</option>
+    </select>
+  </div>
+  <h3 class="title text-center">Table</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of records">
+                <td>{{list.DESCRIPTION}}</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
